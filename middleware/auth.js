@@ -35,6 +35,7 @@ const AuthAdmin = (req, res, next) => {
           next();
         } else {
           formatResult(res, 400, false, "Admin Only", null);
+          console.log('adminonly');
         }
       } else {
         if (err.message === "jwt malformed") {
@@ -42,7 +43,7 @@ const AuthAdmin = (req, res, next) => {
         } else if (err.message === "jwt expired") {
           formatResult(res, 400, false, "Token Expired", null);
         } else {
-          formatResult(req, 400, false, "Invalid Signature", null);
+          formatResult(res, 400, false, "Invalid Signature", null);
         }
       }
     });

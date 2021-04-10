@@ -4,7 +4,7 @@ const middleUpload = require("../middleware/upload");
 
 const router = require("express").Router();
 
-router.post("/",  middleUpload("image"), product.create);
+router.post("/",AuthAdmin, middleUpload("image"), product.create);
 router.get("/", product.getData);
 router.delete("/:id", AuthAdmin, product.deleteData);
 router.get("/:id", product.getDataById);
